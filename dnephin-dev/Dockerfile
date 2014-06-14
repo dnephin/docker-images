@@ -10,7 +10,7 @@ MAINTAINER Daniel Nephin
 
 RUN     apt-get update
 RUN     apt-get -y upgrade 
-RUN     apt-get install -y git vim tmux
+RUN     apt-get install -y git vim tmux tree
 
 RUN     useradd daniel -m -s /bin/bash
 RUN     echo "daniel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

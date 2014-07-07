@@ -21,6 +21,7 @@ RUN     cd /home/daniel; \
         git submodule update --init; \
         mkdir .viminfo
 
-USER    root
+WORKDIR /home/daniel
 ENV     HOME /home/daniel
 ENTRYPOINT sudo -u daniel tmux
+USER    root

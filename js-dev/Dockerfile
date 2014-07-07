@@ -12,5 +12,7 @@ RUN     apt-get update
 RUN     apt-get install -y npm nodejs
 RUN     ln -s /usr/bin/nodejs /usr/local/bin/node
 
-# npm -g likes to fail, install it without links
+# npm -g likes to fail, install it without links first. This fixes it for some 
+# reason
+RUN     npm -g install yo --no-bin-links
 RUN     npm -g install yo

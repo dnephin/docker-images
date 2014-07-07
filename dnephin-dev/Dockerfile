@@ -12,7 +12,7 @@ RUN     apt-get update
 RUN     apt-get -y upgrade 
 RUN     apt-get install -y git vim tmux tree
 
-RUN     useradd daniel -m -s /bin/bash
+RUN     useradd daniel -m -s /bin/bash -u 1001
 RUN     echo "daniel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER    daniel
 RUN     cd /home/daniel; \
@@ -22,4 +22,5 @@ RUN     cd /home/daniel; \
         mkdir .viminfo
 
 USER    root
-CMD     sudo -u daniel -i
+ENV     HOME /home/daniel
+ENTRYPOINT sudo -u daniel tmux

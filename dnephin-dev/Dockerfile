@@ -23,5 +23,5 @@ RUN     cd /home/daniel; \
 
 WORKDIR /home/daniel
 ENV     HOME /home/daniel
-ENTRYPOINT sudo -u daniel tmux
+ENTRYPOINT TERM=xterm-256color sudo -u daniel tmux -2
 USER    root

@@ -12,7 +12,7 @@ RUN     apt-get update
 RUN     apt-get -y upgrade 
 RUN     apt-get install -y git vim tmux tree
 
-RUN     useradd daniel -m -s /bin/bash -u 1001
+RUN     useradd daniel -m -s /bin/bash -u 1000
 RUN     echo "daniel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER    daniel
 RUN     cd /home/daniel; \

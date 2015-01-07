@@ -14,5 +14,5 @@ RUN     ln -s /usr/bin/nodejs /usr/local/bin/node
 
 # npm -g likes to fail, install it without links first. This fixes it for some 
 # reason
-RUN     npm -g install yo --no-bin-links
-RUN     npm -g install yo
+RUN     npm -g install yo coffee-script --no-bin-links
+RUN     npm -g install yo coffee-script

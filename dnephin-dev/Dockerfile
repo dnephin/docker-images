@@ -21,7 +21,8 @@ RUN     cd /home/daniel; \
         git submodule update --init; \
         mkdir .viminfo
 
+ADD     . /code
 WORKDIR /home/daniel
 ENV     HOME /home/daniel
-ENTRYPOINT TERM=xterm-256color sudo -u daniel tmux -2
+ENTRYPOINT sudo -u daniel -E bash /code/start.sh
 USER    root

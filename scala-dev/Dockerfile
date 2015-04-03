@@ -19,7 +19,9 @@ RUN     add-apt-repository -y ppa:webupd8team/java && \
         apt-get update && \
         DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes \
             oracle-java8-installer \
-            sbt
+            sbt \
+            libgtk2.0-0 \
+            libxtst6
 
 # Scala
 RUN     scala_version="scala-2.11.6"; \
@@ -35,4 +37,7 @@ RUN     cd /opt; \
 RUN     useradd daniel -m -s /bin/bash -u 1000
 RUN     echo "daniel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-CMD     sudo -u daniel DISPLAY=:0 /opt/eclipse/eclipse --no-pulseaudio
+COPY    org.eclipse.ui.ide.prefs /opt/eclipse/configuration/.settings/
+ENTRYPOINT ["sudo", "-u", "daniel", "DISPLAY=:0", "HOME=/home/daniel"]
+
+CMD     ["/opt/eclipse/eclipse", "--no-pulseaudio"]
